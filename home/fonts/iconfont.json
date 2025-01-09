@@ -1,0 +1,51 @@
+{
+  "id": "4805998",
+  "name": "m-wyyyy-home",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1031662",
+      "name": "听歌识曲",
+      "font_class": "tinggeshiqu",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "5387544",
+      "name": "扫一扫",
+      "font_class": "saoyisao",
+      "unicode": "eafa",
+      "unicode_decimal": 60154
+    },
+    {
+      "icon_id": "7939947",
+      "name": "播放",
+      "font_class": "arrow-",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "15346593",
+      "name": "更多",
+      "font_class": "gengduo",
+      "unicode": "e6a7",
+      "unicode_decimal": 59047
+    },
+    {
+      "icon_id": "19949527",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "2121746",
+      "name": "分类",
+      "font_class": "fenlei",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    }
+  ]
+}
