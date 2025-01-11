@@ -1,4 +1,35 @@
 (function () {
+  let BASE_URL = 'https://docs-neteasecloudmusicapi.vercel.app'
+  axios.defaults.baseURL = BASE_URL
+  axios
+    .post('/homepage/block/page')
+    .then(res => {
+      store.set('homePageData', res.data.data)
+    })
+    .catch(err => {
+      console.log(err.name)
+    })
+    .finally(renderPage)
+  function renderPage() {
+    let blocks = formHomepageDate()
+    initSwiper(blocks.HOMEPAGE_BANNER)
+    initMenu(blocks.HOMEPAGE_BLOCK_OLD_DRAGON_BALL)
+    initRecmSongList(blocks.HOMEPAGE_BLOCK_PLAYLIST_RCMD)
+    initDrawer()
+  }
+  function formHomepageDate() {
+    let data = store.get('homePageData')
+    if (!data) {
+      alert('数据请求失败，请刷新页面重新请求')
+    }
+    let blocks = data.blocks.reduce(function (prev, block) {
+      let key = block.blockCode
+      prev[key] = block
+      return prev
+    }, {})
+    console.log(blocks);
+    return blocks
+  }
   function initSwiper(res) {
     let bannerSwiper = document.querySelector('.banner-swiper')
     let Fragment = document.createDocumentFragment()
@@ -57,7 +88,7 @@
     document.head.appendChild(styleSheet);
     element.style.animation = `${animaName} ${childrenLength}s infinite`;
   }
-  function createSongList(res) {
+  function initRecmSongList(res) {
     let recommendSongListHead = document.querySelector('.recommendSongList-head a')
     let recommendSongListBody = document.querySelector('.recommendSongList-body')
     recommendSongListHead.innerHTML = `${res.uiElement.subTitle.title}&nbsp;>`
@@ -105,35 +136,17 @@
     // 下一次渲染后重新调用betterScroll
     nextTick(() => scroll2.refresh())
   }
-
-  let BASE_URL = 'https://docs-neteasecloudmusicapi.vercel.app'
-  axios.defaults.baseURL = BASE_URL
-  axios
-    .post('/homepage/block/page')
-    .then(res => {
-      store.set('homePageData', res.data.data)
+  function initDrawer() {
+    let drawerController = document.querySelector('.drawer-controller')
+    let maskLayer = document.querySelector('.mask-layer')
+    let drawer = document.querySelector('.home-drawer')
+    drawerController.addEventListener('click', () => {
+      maskLayer.style.display = 'block'
+      drawer.style.cssText = 'transform:translate(0);transition:all .3s'
     })
-    .catch(err => {
-      console.log(err.name)
+    maskLayer.addEventListener('click', () => {
+      maskLayer.style.display = 'none'
+      drawer.style.transform = 'translate(-100%)'
     })
-    .finally(renderPage)
-  function renderPage() {
-    let blocks = formHomepageDate()
-    initSwiper(blocks.HOMEPAGE_BANNER)
-    initMenu(blocks.HOMEPAGE_BLOCK_OLD_DRAGON_BALL)
-    createSongList(blocks.HOMEPAGE_BLOCK_PLAYLIST_RCMD)
-  }
-  function formHomepageDate() {
-    let data = store.get('homePageData')
-    if (!data) {
-      alert('数据请求失败，请刷新页面重新请求')
-    }
-    let blocks = data.blocks.reduce(function (prev, block) {
-      let key = block.blockCode
-      prev[key] = block
-      return prev
-    }, {})
-    console.log(blocks);
-    return blocks
   }
 })()
