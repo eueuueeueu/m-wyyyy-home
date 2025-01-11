@@ -1,45 +1,31 @@
 (function () {
-  function nextTick(fn) {
-    requestAnimationFrame(function () {
-      setTimeout(function () {
-        typeof fn === "function" && fn();
-      }, 0)
-    })
-  }
-  function typeOf(data) {
-    return Object.prototype.toString.call(data).slice(8, -1).toLowerCase()
-  }
-  function createElement(tag, attrs, children) {
-    if (typeof tag !== 'string') throw new Error('tag参数类型必须是字符串')
-    let element = document.createElement(tag)
-    if (element instanceof HTMLUnknownElement) throw new Error('tag标签名不合法')
-    attrs = typeOf(attrs === 'object') ? attrs : {}
-    Object.entries(attrs).forEach(attr => {
-      let attrName = attr[0]
-      let attrValue = typeOf(attr[1]) === 'object' ? Object.entries(attr[1]).join(';').split(',').join(':') : attr[1]
-      element[attrName] = attrValue
-    })
-    if (typeof children === 'string') element.innerHTML = children
-    return element
-  }
-  function createSwiper(res) {
+  function initSwiper(res) {
     let bannerSwiper = document.querySelector('.banner-swiper')
     let Fragment = document.createDocumentFragment()
-    res.data.blocks[0].extInfo.banners.forEach(src => {
-      let div = createElement('div', { className: 'swiper-slide', style: `background-image:url(${src.pic});background-size:100% 100%` })
+    res.extInfo.banners.forEach(banner => {
+      let div = createElement('div', { className: 'swiper-slide', style: `background-image:url(${banner.pic});background-size:100% 100%` })
       Fragment.appendChild(div)
     });
     bannerSwiper.appendChild(Fragment)
-    swiperConfig()
+    // 初始化swiper
+    var swiper = new Swiper(".mySwiper", {
+      loop: true,
+      autoplay: {
+        delay: 1000,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    });
   }
-  function creatClassify(res) {
+  function initMenu(res) {
     let classify = document.querySelector('.classify')
     let fragment = document.createDocumentFragment()
-    let resources = res.data.blocks[1].creatives[0].resources
+    let resources = res.creatives[0].resources
     resources.forEach(item => {
       let title = item.uiElement.mainTitle.title
       let imgUrl = item.uiElement.image.imageUrl2
-      let div = createElement('div', { className: 'flex flex-col justify-center items-center w-60 mr-[30px]' })
+      let div = createElement('div', { className: 'flex flex-col justify-center items-center w-[60px] mr-[30px]' })
       let img = createElement('img', { src: imgUrl })
       let p = createElement('p', {}, title)
       div.appendChild(img)
@@ -74,17 +60,17 @@
   function createSongList(res) {
     let recommendSongListHead = document.querySelector('.recommendSongList-head a')
     let recommendSongListBody = document.querySelector('.recommendSongList-body')
-    recommendSongListHead.innerHTML = `${res.data.blocks[2].uiElement.subTitle.title}&nbsp;>`
+    recommendSongListHead.innerHTML = `${res.uiElement.subTitle.title}&nbsp;>`
     let fragment = document.createDocumentFragment()
-    let resources = res.data.blocks[2].creatives
+    let resources = res.creatives
     resources.forEach(item => {
-      let div = createElement('div', { className: 'flex flex-col w-100 mr-[30px]' })
+      let div = createElement('div', { className: 'flex flex-col w-[100px] mr-[30px]' })
       // 第一张的标题和图片的值
       let firstTitle = item.uiElement.mainTitle.title
       let firstImgUrl = item.uiElement.image.imageUrl
       // ---------------------------------------------------------
-      let showTextBox = createElement('div', { className: 'w-100 h-42 overflow-hidden' })
-      let showImgBox = createElement('div', { className: 'w-100 h-100 overflow-hidden' })
+      let showTextBox = createElement('div', { className: 'w-[100px] h-[42px] overflow-hidden' })
+      let showImgBox = createElement('div', { className: 'w-[100px] h-[100px] overflow-hidden' })
       let moveImgBox = createElement('div', { className: 'my-move' })
       let moveTextBox = createElement('div', { className: 'my-move2' })
       let payCount = item.resources // 播放的张数(数组)
@@ -119,62 +105,35 @@
     // 下一次渲染后重新调用betterScroll
     nextTick(() => scroll2.refresh())
   }
-  function get(url) {
-    let xhr = new XMLHttpRequest()
-    if (typeof url !== "string") return
-    return new Promise(function (resolve, reject) {
-      xhr.open("GET", url)
-      xhr.onload = function (e) {
-        resolve(JSON.parse(e.target.response))
-      }
-      xhr.onerror = function (e) {
-        reject(e)
-      }
-      xhr.send()
+
+  let BASE_URL = 'https://docs-neteasecloudmusicapi.vercel.app'
+  axios.defaults.baseURL = BASE_URL
+  axios
+    .post('/homepage/block/page')
+    .then(res => {
+      store.set('homePageData', res.data.data)
     })
+    .catch(err => {
+      console.log(err.name)
+    })
+    .finally(renderPage)
+  function renderPage() {
+    let blocks = formHomepageDate()
+    initSwiper(blocks.HOMEPAGE_BANNER)
+    initMenu(blocks.HOMEPAGE_BLOCK_OLD_DRAGON_BALL)
+    createSongList(blocks.HOMEPAGE_BLOCK_PLAYLIST_RCMD)
   }
-  function post(url, config) {
-    return new Promise(function (resolve, reject) {
-      let defaultConfig = { contentType: 'application/json', data: {} }
-      config = _.merge(defaultConfig, config)
-      let xhr = new XMLHttpRequest()
-      xhr.open('POST', url)
-      xhr.setRequestHeader('Content-Type', config.contentType)//告诉服务端数据类型
-      xhr.onreadystatechange = function () {
-        if (Math.floor(this.status / 100) === 2 && this.readyState === 4) {
-          let contentType = this.getResponseHeader('content-type')//服务端返回的content-type
-          let responseData = null
-          if (contentType.indexOf('application/json') > -1) {
-            responseData = JSON.parse(this.response)
-          }
-          // console.log(responseData);
-          typeof config.success === "function" && config.success(responseData)
-          resolve(responseData)
-        }
-      }
-      xhr.onerror = function (err) {
-        typeof config.fail === "function" && config.fail(err.message)
-        reject(err)
-      }
-      if (config.contentType === 'application/json') {
-        data = JSON.stringify(config.data)
-      }
-      if (config.contentType === 'application/x-www-form-urlencoded') {
-        // 对象转字符串(application/x-www-form-urlencoded)
-        data = Qs.stringify(config.data)
-      }
-      xhr.send(data)
-    })
+  function formHomepageDate() {
+    let data = store.get('homePageData')
+    if (!data) {
+      alert('数据请求失败，请刷新页面重新请求')
+    }
+    let blocks = data.blocks.reduce(function (prev, block) {
+      let key = block.blockCode
+      prev[key] = block
+      return prev
+    }, {})
+    console.log(blocks);
+    return blocks
   }
-  // 
-  post('https://docs-neteasecloudmusicapi.vercel.app/homepage/block/page', { contentType: 'application/json' })
-    // get('https://docs-neteasecloudmusicapi.vercel.app/homepage/block/page')
-    .then(function (res) {
-      createSwiper(res)
-      creatClassify(res)
-      createSongList(res)
-    })
-    .catch(function (err) {
-      console.log(err);
-    })
 })()
