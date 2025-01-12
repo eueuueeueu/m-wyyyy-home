@@ -46,7 +46,7 @@ function initRankingList(portLocation) {
             let divItem = createElement('div', { className: 'my-[2.7vw] flex items-center h-[8vw]' })
             divItem.innerHTML = `
               <span class="text-[3.2vw] w-[8.83vw] text-center text-[#858393] font-[400]" style="color: red;">${index + 1}</span>
-              <span class="dark:text-[#fff] text-[3.2vw] text-[#2a344b] mr-[1vw] w-[50vw] overflow-hidden truncate">${songName}</span>
+              <span class="text-start text-[3.2vw] text-[#2a344b] mr-[1vw] w-[50vw] overflow-hidden truncate">${songName}</span>
             `
             divsongList.appendChild(divItem)
           })

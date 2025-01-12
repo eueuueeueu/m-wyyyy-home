@@ -19,344 +19,356 @@
 </head>
 
 <body class="m-0 p-0 box-border">
-  <!-- #home -->
-  <div class="w-screen h-screen home">
-    <!-- home -->
-    <div>
-      <!-- search -->
-      <div
-        class="w-full h-[75px] bg-gradient-to-b from-[#e8e6fb] to-[#f1f1f1] px-[15px] py-[18px] flex items-center justify-between">
-        <i class="iconfont text-[20px] drawer-controller">&#xe611;</i>
-        <div
-          class="relative flex-1 h-full  rounded-[15px] overflow-hidden mx-[15px] flex items-center border-[#c2c3f0] border-2">
-          <i class="absolute left-2 text-[17px] text-gray-500 iconfont">&#xe60a;</i>
-          <input type="search" name="" id="" placeholder="Love Is Gone (Acoustic)"
-            class="w-full h-full pl-[30px] outline-none bg-gradient-to-r from-[#daddfd] to-[#f1d8f2]">
-          <i class="absolute right-2 text-[22px] text-gray-500 iconfont">&#xeafa;</i>
-        </div>
-        <i class="iconfont text-[26px]">&#xe64f;</i>
-      </div>
-      <!-- swiper -->
-      <div class="w-full h-[200px] px-[15px] relative z-0">
-        <div class="swiper mySwiper rounded-[20px]">
-          <div class="swiper-wrapper banner-swiper">
-            <!-- swiper-slide...动态注入 -->
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-      </div>
-      <!-- classify -->
-      <div class="wrapper w-full bg-red-400 my-[10px] overflow-hidden">
-        <ul class="content inline-flex px-[15px] classify">
-        </ul>
-      </div>
-      <!-- recommend song list -->
-      <div class="w-full">
-        <div
-          class="recommendSongList-head w-full h-30 bg-red-400 px-[15px] flex justify-between items-center text-[18px]">
-          <a href="#"></a>
-          <i class="iconfont text-[30px]">&#xe6a7;</i>
-        </div>
-        <div class="wrapper2 w-full bg-red-400 my-[10px] overflow-hidden">
-          <ul class="content inline-flex px-[15px] classify  recommendSongList-body">
-          </ul>
-        </div>
-      </div>
-    </div>
-    <!-- 遮罩层 -->
-    <div class="mask-layer w-full h-full bg-black opacity-40 absolute top-0 left-0 z-100 hidden"></div>
-    <!-- drawer -->
-    <div class="home-drawer w-[80vw] fixed top-0 translate-x-[-100%] h-full bg-[#f1f1f1] opacity-100 z-101 px-[5vw]">
-      <!-- login -->
-      <div class="relative z-10 bg-[#f1f1f1] h-[9vh] flex justify-between items-center">
-        <div class="flex justify-between items-center">
-          <i class="iconfont text-lg">&#xe6de;</i>
-          <p class="mx-[2vw]">立即登录</p>
-          <i class="iconfont text-sm">&#xe623;</i>
-        </div>
-        <i class="iconfont text-2xl">&#xe8b5;</i>
-      </div>
-      <!-- scroll -->
-      <div class="drawer-wrapper w-full h-[91vh]">
-        <div class="drawer-content">
-          <!-- 开通黑胶VIP -->
-          <div class="w-full h-[15vh] bg-gradient-to-r from-[#3b3b3b] to-[#5e4f4f] rounded-[20px] px-[4vw]">
-            <div class="h-[10vw] flex justify-between items-center">
-              <h1 class="text-2 text-white">开通黑胶VIP</h1>
-              <div
-                class="text-[#9e8f8f] w-[15vw] h-[6vw] leading-[6vw] text-center rounded-[20px] border-[1px] border-[#9e8f8f] text-[2.5vw] mt-[3vw]">
-                会员中心</div>
-            </div>
-            <div class="h-[7vw] border-b-2 border-[#494443]">
-              <p class="text-[2.73vw] text-[#9e8f8f]">点击恢复超21项专属特权</p>
-            </div>
-            <div class="h-[11vw] leading-[11vw] flex justify-between items-center">
-              <div class="text-[2.5vw] text-[#9e8f8f] h-[11vw]">受邀专享，黑胶VIP低至0.27/天！</div>
-              <div
-                class="w-[13vw] h-[13vw] rounded-[10px] bg-red-500 text-white text-[5vw] text-center leading-[24px] scale-50">
-                受邀专享</div>
-            </div>
-          </div>
-          <!-- 功能卡片 -->
-          <div class="w-full mx-auto mt-[4vw] px-[4vw] bg-white rounded-[10px]">
-            <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
-              <div class="flex items-center">
-                <i class="iconfont text-[#333] text-[5vw]">&#xe606;</i>
-                <span class="ml-[2.2vw]">我的消息</span>
-              </div>
-              <div class="flex items-center">
-                <i class="iconfont text-[#333]">&#xe623;</i>
-              </div>
-            </div>
-            <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
-              <div class="flex items-center">
-                <i class="iconfont text-[#333] text-[5vw]">&#xe622;</i>
-                <span class="ml-[2.2vw]">云贝中心</span>
-              </div>
-              <div class="flex items-center">
-                <span class="text-[color:#a7a7a7] text-[3vw]">签到</span>
-                <i class="iconfont text-[#333]">&#xe623;</i>
-              </div>
-            </div>
-            <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
-              <div class="flex items-center">
-                <i class="iconfont text-[#333] text-[5vw]">&#xe60c;</i>
-                <span class="ml-[2.2vw]">创作者中心</span>
-              </div>
-              <div class="flex items-center">
-                <i class="iconfont text-[#333]">&#xe623;</i>
-              </div>
-            </div>
-          </div>
-          <!-- 功能卡片-音乐服务 -->
-          <div class="w-full mx-auto mt-[4vw] px-[4vw] bg-white rounded-[10px]">
+  <!-- Swiper -->
+  <div class="swiper myPageSwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide swiper-no-swiping">
+        <!-- #home -->
+        <div class="w-screen h-screen" id="home">
+          <!-- home -->
+          <div class="bg-[#f1f1f1]">
+            <!-- search -->
             <div
-              class="dark:border-b-[#333] text-[#969696] text-[3vw] px-[4vw] py-[3vw] border-b-[0.35vw] border-b-[#E8e8e8]">
-              音乐服务
+              class="w-full h-[75px] bg-gradient-to-b from-[#e8e6fb] to-[#f1f1f1] px-[15px] py-[18px] flex items-center justify-between">
+              <i class="iconfont text-[20px] drawer-controller">&#xe611;</i>
+              <div
+                class="relative flex-1 h-full  rounded-[15px] overflow-hidden mx-[15px] flex items-center border-[#c2c3f0] border-2">
+                <i class="absolute left-2 text-[17px] text-gray-500 iconfont">&#xe60a;</i>
+                <input type="text" autocomplete="off" name="" id="home-search" placeholder="Love Is Gone (Acoustic)"
+                  class="appearance-none w-full h-full pl-[30px] outline-none bg-gradient-to-r from-[#daddfd] to-[#f1d8f2]">
+                <i class="absolute right-2 text-[22px] text-gray-500 iconfont">&#xeafa;</i>
+              </div>
+              <i class="iconfont text-[26px]">&#xe64f;</i>
             </div>
-            <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
-              <div class="flex items-center">
-                <i class="iconfont text-[#333] text-[5vw]">&#xe64c;</i>
-                <span class="ml-[2.2vw]">趣测</span>
-              </div>
-              <div class="flex items-center">
-                <span class="text-[color:#a7a7a7] text-[3vw]">点击查看今日运势</span>
-                <i class="iconfont text-[#333]">&#xe623;</i>
-              </div>
-            </div>
-            <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
-              <div class="flex items-center">
-                <i class="iconfont text-[#333] text-[5vw]">&#xe899;</i>
-                <span class="ml-[2.2vw]">云村有票</span>
-              </div>
-              <div class="flex items-center">
-                <i class="iconfont text-[#333]">&#xe623;</i>
+            <!-- swiper -->
+            <div class="w-full h-[200px] px-[15px] relative z-0">
+              <div class="swiper mySwiper rounded-[20px]">
+                <div class="swiper-wrapper banner-swiper">
+                  <!-- swiper-slide...动态注入 -->
+                </div>
+                <div class="swiper-pagination"></div>
               </div>
             </div>
-            <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
-              <div class="flex items-center">
-                <i class="iconfont text-[#333] text-[5vw]">&#xe601;</i>
-                <span class="ml-[2.2vw]">多多西西口袋</span>
+            <!-- classify -->
+            <div class="wrapper w-full bg-red-000 my-[10px] overflow-hidden">
+              <ul class="content inline-flex px-[15px] classify">
+              </ul>
+            </div>
+            <!-- recommend song list -->
+            <div class="w-full">
+              <div
+                class="recommendSongList-head w-full h-30 bg-red-000 px-[15px] flex justify-between items-center text-[18px]">
+                <a href="#"></a>
+                <i class="iconfont text-[30px]">&#xe6a7;</i>
               </div>
-              <div class="flex items-center">
-                <i class="iconfont text-[#333]">&#xe623;</i>
+              <div class="wrapper2 w-full bg-red-000 my-[10px] overflow-hidden">
+                <ul class="content inline-flex px-[15px] classify  recommendSongList-body">
+                </ul>
               </div>
             </div>
-            <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
-              <div class="flex items-center">
-                <i class="iconfont text-[#333] text-[5vw]">&#xe647;</i>
-                <span class="ml-[2.2vw]">商城</span>
-              </div>
-              <div class="flex items-center">
-                <i class="iconfont text-[#333]">&#xe623;</i>
-              </div>
-            </div>
-            <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
-              <div class="flex items-center">
-                <i class="iconfont text-[#333] text-[5vw]">&#xe6f3;</i>
-                <span class="ml-[2.2vw]">Beat专区</span>
-              </div>
-              <div class="flex items-center">
-                <span class="text-[color:#a7a7a7] text-[3vw]">点击查看今日运势</span>
-                <i class="iconfont text-[#333]">&#xe623;</i>
-              </div>
-            </div>
-            <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
-              <div class="flex items-center">
-                <i class="iconfont text-[#333] text-[5vw]">&#xe600;</i>
-                <span class="ml-[2.2vw]">口袋彩铃</span>
-              </div>
-              <div class="flex items-center">
-                <i class="iconfont text-[#333]">&#xe623;</i>
-              </div>
-            </div>
-            <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
-              <div class="flex items-center">
-                <i class="iconfont text-[#333] text-[5vw]">&#xe69e;</i>
-                <span class="ml-[2.2vw]">游戏专区</span>
-              </div>
-              <div class="flex items-center">
-                <span class="text-[color:#a7a7a7] text-[3vw]">点击查看今日运势</span>
-                <i class="iconfont text-[#333]">&#xe623;</i>
-              </div>
-            </div>
-          </div>
-          <!-- 功能卡片-其他 -->
-          <div class="w-full mx-auto mt-[4vw] px-[4vw] bg-white rounded-[10px]">
+            <!-- 遮罩层 -->
+            <div class="mask-layer w-full h-full bg-black opacity-40 fixed top-0 left-0 z-40 hidden"></div>
+            <!-- drawer -->
             <div
-              class="dark:border-b-[#333] text-[#969696] text-[3vw] px-[4vw] py-[3vw] border-b-[0.35vw] border-b-[#E8e8e8]">
-              其他
-            </div>
-            <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
-              <div class="flex items-center">
-                <i class="iconfont text-[#333] text-[5vw]">&#xe625;</i>
-                <span class="ml-[2.2vw]">设置</span>
+              class="home-drawer w-[80vw] fixed top-0 translate-x-[-100%] h-full bg-[#f1f1f1] opacity-100 z-50 px-[5vw]">
+              <!-- login -->
+              <div class="relative z-10 bg-[#f1f1f1] h-[9vh] flex justify-between items-center">
+                <div class="flex justify-between items-center">
+                  <i class="iconfont text-lg">&#xe6de;</i>
+                  <p class="mx-[2vw] text-[14px]">立即登录</p>
+                  <i class="iconfont text-sm">&#xe623;</i>
+                </div>
+                <i class="iconfont text-2xl">&#xe8b5;</i>
               </div>
-              <div class="flex items-center">
-                <i class="iconfont text-[#333]">&#xe623;</i>
-              </div>
-            </div>
-            <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
-              <div class="flex items-center">
-                <i class="iconfont text-[#333] text-[5vw]">&#xe650;</i>
-                <span class="ml-[2.2vw]">深色模式</span>
-              </div>
-              <div class="flex items-center">
-                <i class="iconfont text-[#333]">按钮</i>
-              </div>
-            </div>
-            <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
-              <div class="flex items-center">
-                <i class="iconfont text-[#333] text-[5vw]">&#xe8fc;</i>
-                <span class="ml-[2.2vw]">定时关闭</span>
-              </div>
-              <div class="flex items-center">
-                <i class="iconfont text-[#333]">&#xe623;</i>
-              </div>
-            </div>
-            <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
-              <div class="flex items-center">
-                <i class="iconfont text-[#333] text-[5vw]">&#xe67a;</i>
-                <span class="ml-[2.2vw]">个性装扮</span>
-              </div>
-              <div class="flex items-center">
-                <i class="iconfont text-[#333]">&#xe623;</i>
-              </div>
-            </div>
-            <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
-              <div class="flex items-center">
-                <i class="iconfont text-[#333] text-[5vw]">&#xe61d;</i>
-                <span class="ml-[2.2vw]">边听变存</span>
-              </div>
-              <div class="flex items-center">
-                <span class="text-[color:#a7a7a7] text-[3vw]">未开启</span>
-                <i class="iconfont text-[#333]">&#xe623;</i>
-              </div>
-            </div>
-            <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
-              <div class="flex items-center">
-                <i class="iconfont text-[#333] text-[5vw]">&#xe61d;</i>
-                <span class="ml-[2.2vw]">在线听歌兔流量</span>
-              </div>
-              <div class="flex items-center">
-                <i class="iconfont text-[#333]">&#xe623;</i>
-              </div>
-            </div>
-            <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
-              <div class="flex items-center">
-                <i class="iconfont text-[#333] text-[5vw]">&#xe631;</i>
-                <span class="ml-[2.2vw]">音乐黑名单</span>
-              </div>
-              <div class="flex items-center">
-                <span class="text-[color:#a7a7a7] text-[3vw]">未开启</span>
-                <i class="iconfont text-[#333]">&#xe623;</i>
-              </div>
-            </div>
-            <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
-              <div class="flex items-center">
-                <i class="iconfont text-[#333] text-[5vw]">&#xe630;</i>
-                <span class="ml-[2.2vw]">青少年模式</span>
-              </div>
-              <div class="flex items-center">
-                <span class="text-[color:#a7a7a7] text-[3vw]">未开启</span>
-                <i class="iconfont text-[#333]">&#xe623;</i>
-              </div>
-            </div>
-            <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
-              <div class="flex items-center">
-                <i class="iconfont text-[#333] text-[5vw]">&#xe890;</i>
-                <span class="ml-[2.2vw]">音乐闹钟</span>
-              </div>
-              <div class="flex items-center">
-                <i class="iconfont text-[#333]">&#xe623;</i>
+              <!-- scroll -->
+              <div class="drawer-wrapper w-full h-[91vh]">
+                <div class="drawer-content">
+                  <!-- 开通黑胶VIP -->
+                  <div class="w-full h-[15vh] bg-gradient-to-r from-[#3b3b3b] to-[#5e4f4f] rounded-[20px] px-[4vw]">
+                    <div class="h-[10vw] flex justify-between items-center">
+                      <h1 class="text-2 text-white text-[14px]">开通黑胶VIP</h1>
+                      <div
+                        class="text-[#9e8f8f] w-[15vw] h-[6vw] leading-[6vw] text-center rounded-[20px] border-[1px] border-[#9e8f8f] text-[2.5vw] mt-[3vw]">
+                        会员中心</div>
+                    </div>
+                    <div class="h-[7vw] border-b-2 border-[#494443]">
+                      <p class="text-[2.73vw] text-[#9e8f8f] text-start">点击恢复超21项专属特权</p>
+                    </div>
+                    <div class="h-[11vw] leading-[11vw] flex justify-between items-center">
+                      <div class="text-[2.5vw] text-[#9e8f8f] h-[11vw]">受邀专享，黑胶VIP低至0.27/天！</div>
+                      <div
+                        class="w-[13vw] h-[13vw] rounded-[10px] bg-red-500 text-white text-[5vw] text-center leading-[24px] scale-50">
+                        受邀专享</div>
+                    </div>
+                  </div>
+                  <!-- 功能卡片 -->
+                  <div class="w-full mx-auto mt-[4vw] px-[4vw] bg-white rounded-[10px]">
+                    <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333] text-[5vw]">&#xe606;</i>
+                        <span class="ml-[2.2vw] text-[14px]">我的消息</span>
+                      </div>
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333]">&#xe623;</i>
+                      </div>
+                    </div>
+                    <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333] text-[5vw]">&#xe622;</i>
+                        <span class="ml-[2.2vw] text-[14px]">云贝中心</span>
+                      </div>
+                      <div class="flex items-center">
+                        <span class="text-[color:#a7a7a7] text-[3vw]">签到</span>
+                        <i class="iconfont text-[#333]">&#xe623;</i>
+                      </div>
+                    </div>
+                    <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333] text-[5vw]">&#xe60c;</i>
+                        <span class="ml-[2.2vw] text-[14px]">创作者中心</span>
+                      </div>
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333]">&#xe623;</i>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- 功能卡片-音乐服务 -->
+                  <div class="w-full mx-auto mt-[4vw] px-[4vw] bg-white rounded-[10px]">
+                    <div
+                      class="text-start text-[#969696] text-[3vw] px-[4vw] py-[3vw] border-b-[0.35vw] border-b-[#E8e8e8]">
+                      音乐服务
+                    </div>
+                    <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333] text-[5vw]">&#xe64c;</i>
+                        <span class="ml-[2.2vw] text-[14px]">趣测</span>
+                      </div>
+                      <div class="flex items-center">
+                        <span class="text-[color:#a7a7a7] text-[3vw]">点击查看今日运势</span>
+                        <i class="iconfont text-[#333]">&#xe623;</i>
+                      </div>
+                    </div>
+                    <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333] text-[5vw]">&#xe899;</i>
+                        <span class="ml-[2.2vw] text-[14px]">云村有票</span>
+                      </div>
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333]">&#xe623;</i>
+                      </div>
+                    </div>
+                    <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333] text-[5vw]">&#xe601;</i>
+                        <span class="ml-[2.2vw] text-[14px]">多多西西口袋</span>
+                      </div>
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333]">&#xe623;</i>
+                      </div>
+                    </div>
+                    <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333] text-[5vw]">&#xe647;</i>
+                        <span class="ml-[2.2vw] text-[14px]">商城</span>
+                      </div>
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333]">&#xe623;</i>
+                      </div>
+                    </div>
+                    <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333] text-[5vw]">&#xe6f3;</i>
+                        <span class="ml-[2.2vw] text-[14px]">Beat专区</span>
+                      </div>
+                      <div class="flex items-center">
+                        <span class="text-[color:#a7a7a7] text-[3vw]">点击查看今日运势</span>
+                        <i class="iconfont text-[#333]">&#xe623;</i>
+                      </div>
+                    </div>
+                    <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333] text-[5vw]">&#xe600;</i>
+                        <span class="ml-[2.2vw] text-[14px]">口袋彩铃</span>
+                      </div>
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333]">&#xe623;</i>
+                      </div>
+                    </div>
+                    <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333] text-[5vw]">&#xe69e;</i>
+                        <span class="ml-[2.2vw] text-[14px]">游戏专区</span>
+                      </div>
+                      <div class="flex items-center">
+                        <span class="text-[color:#a7a7a7] text-[3vw]">点击查看今日运势</span>
+                        <i class="iconfont text-[#333]">&#xe623;</i>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- 功能卡片-其他 -->
+                  <div class="w-full mx-auto mt-[4vw] px-[4vw] bg-white rounded-[10px]">
+                    <div
+                      class="text-start text-[#969696] text-[3vw] px-[4vw] py-[3vw] border-b-[0.35vw] border-b-[#E8e8e8]">
+                      其他
+                    </div>
+                    <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333] text-[5vw]">&#xe625;</i>
+                        <span class="ml-[2.2vw] text-[14px]">设置</span>
+                      </div>
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333]">&#xe623;</i>
+                      </div>
+                    </div>
+                    <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333] text-[5vw]">&#xe650;</i>
+                        <span class="ml-[2.2vw] text-[14px]">深色模式</span>
+                      </div>
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333]">按钮</i>
+                      </div>
+                    </div>
+                    <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333] text-[5vw]">&#xe8fc;</i>
+                        <span class="ml-[2.2vw] text-[14px]">定时关闭</span>
+                      </div>
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333]">&#xe623;</i>
+                      </div>
+                    </div>
+                    <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333] text-[5vw]">&#xe67a;</i>
+                        <span class="ml-[2.2vw] text-[14px]">个性装扮</span>
+                      </div>
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333]">&#xe623;</i>
+                      </div>
+                    </div>
+                    <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333] text-[5vw]">&#xe61d;</i>
+                        <span class="ml-[2.2vw] text-[14px]">边听变存</span>
+                      </div>
+                      <div class="flex items-center">
+                        <span class="text-[color:#a7a7a7] text-[3vw]">未开启</span>
+                        <i class="iconfont text-[#333]">&#xe623;</i>
+                      </div>
+                    </div>
+                    <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333] text-[5vw]">&#xe61d;</i>
+                        <span class="ml-[2.2vw] text-[14px]">在线听歌兔流量</span>
+                      </div>
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333]">&#xe623;</i>
+                      </div>
+                    </div>
+                    <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333] text-[5vw]">&#xe631;</i>
+                        <span class="ml-[2.2vw] text-[14px]">音乐黑名单</span>
+                      </div>
+                      <div class="flex items-center">
+                        <span class="text-[color:#a7a7a7] text-[3vw]">未开启</span>
+                        <i class="iconfont text-[#333]">&#xe623;</i>
+                      </div>
+                    </div>
+                    <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333] text-[5vw]">&#xe630;</i>
+                        <span class="ml-[2.2vw] text-[14px]">青少年模式</span>
+                      </div>
+                      <div class="flex items-center">
+                        <span class="text-[color:#a7a7a7] text-[3vw]">未开启</span>
+                        <i class="iconfont text-[#333]">&#xe623;</i>
+                      </div>
+                    </div>
+                    <div class="flex items-center justify-between h-[12vw] px-[3.6vw]">
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333] text-[5vw]">&#xe890;</i>
+                        <span class="ml-[2.2vw] text-[14px]">音乐闹钟</span>
+                      </div>
+                      <div class="flex items-center">
+                        <i class="iconfont text-[#333]">&#xe623;</i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <!-- #search -->
-  <div class="w-screen h-screen search bg-[#f4f4f4]">
-    <!-- search -->
-    <div class="w-full h-[75px] px-[15px] py-[18px] flex items-center justify-between">
-      <i class="iconfont text-[20px] drawer-controller">&#xe661;</i>
-      <div class="relative flex-1 h-full rounded-[15px] overflow-hidden mx-[15px] flex items-center border-2">
-        <i class="absolute left-2 text-[17px] text-gray-500 iconfont">&#xe60a;</i>
-        <input type="search" name="" id="" placeholder="🔥《大奉打更人》现正热播中"
-          class="search-recommend text-[12px] w-full h-full pl-[40px] outline-none">
-      </div>
-      <i class="iconfont text-[26px]">&#xe64f;</i>
-    </div>
-    <!-- scroll-list -->
-    <div>
-      <!-- 歌手 -->
-      <div class="flex justify-around mt-[3vw] text-red-600">
-        <div class="flex w-[25vw] justify-center items-center border-[#E3E5EA] border-r-[0.4vw]">
-          <i class="iconfont">&#xe603;</i>
-          <p class="ml-[2vw] text-black">歌手</p>
-        </div>
-        <div class="flex w-[25vw] justify-center items-center border-[#E3E5EA] border-r-[0.4vw]">
-          <i class="iconfont">&#xe6a0;</i>
-          <p class="ml-[2vw] text-black">曲风</p>
-        </div>
-        <div class="flex w-[25vw] justify-center items-center border-[#E3E5EA] border-r-[0.4vw]">
-          <i class="iconfont">&#xe73a;</i>
-          <p class="ml-[2vw] text-black">专区</p>
-        </div>
-        <div class="flex w-[25vw] justify-center items-center border-[#E3E5EA] border-r-[0.4vw]">
-          <i class="iconfont">&#xe64f;</i>
-          <p class="ml-[2vw] text-black">识曲</p>
-        </div>
-      </div>
-      <!-- 猜你喜欢 -->
-      <div class="mt-[5vw]">
-        <div class="flex justify-between items-center px-[3vw]">
-          <h1 class="font-semibold text-[4vw] text-[#283349] dark:text-[#e9e9e9]">猜你喜欢</h1>
-          <i class="iconfont">&#xeb84;</i>
-        </div>
-        <div class="flex px-[3vw] flex-wrap">
-          <div class="p-[2vw] mr-[2vw] mt-[3vw] text-[3.5vw] text-[#535c6a] bg-white px-[3vw] rounded-[20px]">
-            爱我还是他</div>
-          <div class="p-[2vw] mr-[2vw] mt-[3vw] text-[3.5vw] text-[#535c6a] bg-white px-[3vw] rounded-[20px]">
-            孤独患者</div>
-          <div class="p-[2vw] mr-[2vw] mt-[3vw] text-[3.5vw]  text-[#535c6a] bg-white px-[3vw] rounded-[20px]">
-            浆果</div>
-          <div class="p-[2vw] mr-[2vw] mt-[3vw] text-[3.5vw]  text-[#535c6a] bg-white px-[3vw] rounded-[20px]">
-            我怀念的</div>
-          <div class="p-[2vw] mr-[2vw] mt-[3vw] text-[3.5vw]  text-[#535c6a] bg-white px-[3vw] rounded-[20px]">
-            于是</div>
-        </div>
-      </div>
-      <!-- 榜单 -->
-      <div class="ranking-list-wrapper w-[100vw] overflow-hidden mt-[5vw]">
-        <div class="ranking-list-content inline-flex">
-          <!-- 动态注入 -->
-        </div>
-      </div>
+      <div class="swiper-slide swiper-no-swiping">
+        <!-- #search -->
+        <div class="w-screen h-screen bg-[#f4f4f4]" id="search">
+          <!-- search -->
+          <div class="w-full h-[75px] px-[15px] py-[18px] flex items-center justify-between">
+            <i class="iconfont text-[20px] drawer-controller" id="search-back">&#xe661;</i>
+            <div class="relative flex-1 h-full rounded-[15px] overflow-hidden mx-[15px] flex items-center border-2">
+              <i class="absolute left-2 text-[17px] text-gray-500 iconfont">&#xe60a;</i>
+              <input type="search" name="" id="" placeholder="🔥《大奉打更人》现正热播中"
+                class="search-recommend text-[12px] w-full h-full pl-[40px] outline-none">
+            </div>
+            <i class="iconfont text-[26px]">&#xe64f;</i>
+          </div>
+          <!-- scroll-list -->
+          <div>
+            <!-- 歌手 -->
+            <div class="flex justify-around mt-[3vw] text-red-600">
+              <div class="flex w-[25vw] justify-center items-center border-[#E3E5EA] border-r-[0.4vw]">
+                <i class="iconfont">&#xe603;</i>
+                <p class="ml-[2vw] text-black text-[14px]">歌手</p>
+              </div>
+              <div class="flex w-[25vw] justify-center items-center border-[#E3E5EA] border-r-[0.4vw]">
+                <i class="iconfont">&#xe6a0;</i>
+                <p class="ml-[2vw] text-black text-[14px]">曲风</p>
+              </div>
+              <div class="flex w-[25vw] justify-center items-center border-[#E3E5EA] border-r-[0.4vw]">
+                <i class="iconfont">&#xe73a;</i>
+                <p class="ml-[2vw] text-black text-[14px]">专区</p>
+              </div>
+              <div class="flex w-[25vw] justify-center items-center border-[#E3E5EA] border-r-[0.4vw]">
+                <i class="iconfont">&#xe64f;</i>
+                <p class="ml-[2vw] text-black text-[14px]">识曲</p>
+              </div>
+            </div>
+            <!-- 猜你喜欢 -->
+            <div class="mt-[5vw]">
+              <div class="flex justify-between items-center px-[3vw]">
+                <h1 class="font-semibold text-[4vw] text-[#283349] dark:text-[#e9e9e9]">猜你喜欢</h1>
+                <i class="iconfont">&#xeb84;</i>
+              </div>
+              <div class="flex px-[3vw] flex-wrap">
+                <div class="p-[2vw] mr-[2vw] mt-[3vw] text-[3.5vw] text-[#535c6a] bg-white px-[3vw] rounded-[20px]">
+                  爱我还是他</div>
+                <div class="p-[2vw] mr-[2vw] mt-[3vw] text-[3.5vw] text-[#535c6a] bg-white px-[3vw] rounded-[20px]">
+                  孤独患者</div>
+                <div class="p-[2vw] mr-[2vw] mt-[3vw] text-[3.5vw]  text-[#535c6a] bg-white px-[3vw] rounded-[20px]">
+                  浆果</div>
+                <div class="p-[2vw] mr-[2vw] mt-[3vw] text-[3.5vw]  text-[#535c6a] bg-white px-[3vw] rounded-[20px]">
+                  我怀念的</div>
+                <div class="p-[2vw] mr-[2vw] mt-[3vw] text-[3.5vw]  text-[#535c6a] bg-white px-[3vw] rounded-[20px]">
+                  于是</div>
+              </div>
+            </div>
+            <!-- 榜单 -->
+            <div class="ranking-list-wrapper w-[100vw] overflow-hidden mt-[5vw]">
+              <div class="ranking-list-content inline-flex">
+                <!-- 动态注入 -->
+              </div>
+            </div>
 
 
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="swiper-toggle-button-prev hidden"></div><!--左箭头。如果放置在swiper外面，需要自定义样式。-->
+    <div class="swiper-toggle-button-next hidden"></div><!--右箭头。如果放置在swiper外面，需要自定义样式。-->
   </div>
 </body>
 <!-- tailwind-js -->

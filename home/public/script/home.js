@@ -16,6 +16,7 @@
     initMenu(blocks.HOMEPAGE_BLOCK_OLD_DRAGON_BALL)
     initRecmSongList(blocks.HOMEPAGE_BLOCK_PLAYLIST_RCMD)
     initDrawer()
+    initHomeToSearch()
   }
   function formHomepageDate() {
     let data = store.get('homePageData')
@@ -41,6 +42,7 @@
     // 初始化swiper
     var swiper = new Swiper(".mySwiper", {
       loop: true,
+      noSwiping: false,
       autoplay: {
         delay: 1000,
       },
@@ -58,7 +60,7 @@
       let imgUrl = item.uiElement.image.imageUrl2
       let div = createElement('div', { className: 'flex flex-col justify-center items-center w-[60px] mr-[30px]' })
       let img = createElement('img', { src: imgUrl })
-      let p = createElement('p', {}, title)
+      let p = createElement('p', { className: 'text-[14px]' }, title)
       div.appendChild(img)
       div.appendChild(p)
       fragment.appendChild(div)
@@ -147,6 +149,32 @@
     maskLayer.addEventListener('click', () => {
       maskLayer.style.display = 'none'
       drawer.style.transform = 'translate(-100%)'
+    })
+  }
+  function initHomeToSearch() {
+    /*
+    location.hash = '#home'
+    let homeSearch = document.querySelector('#home-search')
+    homeSearch.addEventListener('focus', e => {
+      // 修改hash值来跳转
+      location.hash = '#search'
+      console.log(location.hash);
+
+    })
+    */
+    var swiper2 = new Swiper(".myPageSwiper", {
+      loop: true,
+      direction: 'vertical',
+      noSwiping: true,
+      navigation: {
+        nextEl: '.swiper-toggle-button-next',
+        prevEl: '.swiper-toggle-button-prev',
+      },
+    });
+    document.documentElement.addEventListener('click', e => {
+      if (e.target.id === 'home-search' || e.target.id === 'search-back') {
+        document.querySelector('.swiper-toggle-button-next').click()
+      }
     })
   }
 })()
